@@ -1,0 +1,6 @@
+interfaces/StaticInterface.java
+ interfaces.StaticInterface
+interfaces/DefaultStaticInterface.java
+ interfaces.DefaultStaticInterface
+JavaTest.java
+ JavaTest
