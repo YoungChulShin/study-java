@@ -3,6 +3,7 @@ import builder_pattern.Pizza;
 import interfaces.DefaultStaticInterface;
 import interfaces.StaticInterface;
 import maps.WeakHashMapTest;
+import objects.Point;
 
 import java.util.EnumSet;
 import java.util.WeakHashMap;
@@ -26,5 +27,11 @@ public class JavaTest {
          */
 //        NyPizza pizza = new NyPizza.Builder(NyPizza.Size.SMALL)
 //                .addToppoing(Pizza.Topping.HAM).build();
+
+        Point pointA = new Point(1, 2);
+        Point pointB = new Point(1, 2);
+
+        boolean equals = pointA.equals(pointB);
+        System.out.println(equals);
     }
 }
