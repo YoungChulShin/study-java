@@ -6,9 +6,14 @@ import maps.WeakHashMapTest;
 import objects.Point;
 
 import java.util.EnumSet;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.WeakHashMap;
 
 public class JavaTest {
+    public JavaTest() {
+    }
+
     public static void main(String[] args) {
 //        StaticInterface.singleGreeting();
 //
@@ -28,10 +33,22 @@ public class JavaTest {
 //        NyPizza pizza = new NyPizza.Builder(NyPizza.Size.SMALL)
 //                .addToppoing(Pizza.Topping.HAM).build();
 
-        Point pointA = new Point(1, 2);
-        Point pointB = new Point(1, 2);
+//        Point pointA = new Point(1, 2);
+//        Point pointB = new Point(1, 2);
+//
+//        boolean equals = pointA.equals(pointB);
+//        System.out.println(equals);
+//
+//        "1".compareTo("2");
+//
+//        Set<String> s = new TreeSet<>();
+//        s.add("1");
+//        s.add("3");
+//        s.add("2");
+//        s.add("4");
+//        System.out.println(s);
+//
+//        String.CASE_INSENSITIVE_ORDER.compare()
 
-        boolean equals = pointA.equals(pointB);
-        System.out.println(equals);
     }
 }
