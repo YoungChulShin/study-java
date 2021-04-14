@@ -25,10 +25,6 @@ public final class Complex {
         return new Complex(re - c.re, im - c.im);
     }
 
-    public Complex times(Complex c) {
-        return new Complex(re * c.re - im * c.im, re * c.re + im * c.im,);
-    }
-
     public Complex dividedBy(Complex c) {
         double tmp = c.re * c.re + c.im * c.im;
         return new Complex((re * c.re + im  * c.im) / tmp,
