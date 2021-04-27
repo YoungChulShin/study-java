@@ -11,4 +11,16 @@ public class ComputerClient {
 
     System.out.println(computer);
   }
+
+  public static void createComputer2() {
+    Computer2 computer = new Computer2.Computer2Builder("ryzen3", 64)
+        .diskSize(512)
+        .diskType("hdd")
+        .gpuModel("radeon 9600xt")
+        .build();
+
+
+
+    System.out.println(computer);
+  }
 }
