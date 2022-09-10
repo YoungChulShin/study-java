@@ -4,6 +4,7 @@ import org.reactivestreams.Subscription;
 public class MySub implements Subscriber<Integer> {
 
   private Subscription s;
+  private int bufferSize = 5;
 
   @Override
   public void onSubscribe(Subscription s) {
@@ -11,13 +12,18 @@ public class MySub implements Subscriber<Integer> {
     this.s = s;
 
     System.out.println("구독자: 나 이제 신문 1개씩 줘");
-    s.request(1); // backPressure - 소비자가 한번에 처리할 수 있는 개수를 요청. 1개만 줘가 아니라, 1개씩 줘
+    s.request(bufferSize); // backPressure - 소비자가 한번에 처리할 수 있는 개수를 요청. 1개만 줘가 아니라, 1개씩 줘
   }
 
   @Override
   public void onNext(Integer integer) {
     System.out.println("onNext(): " + integer);
-    s.request(1);
+    bufferSize--;
+    if (bufferSize == 0) {
+      System.out.println("하루 지남");
+      bufferSize = 5;
+      s.request(bufferSize);
+    }
   }
 
   @Override
