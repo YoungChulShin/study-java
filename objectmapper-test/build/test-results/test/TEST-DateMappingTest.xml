@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DateMappingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-09-17T07:50:12" hostname="MB-youngchulshin.local" time="0.213">
+  <properties/>
+  <testcase name="default_instant_매핑_테스트()" classname="DateMappingTest" time="0.213"/>
+  <system-out><![CDATA[{"id":1,"name":"sample","time":1663401012.643744000}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
