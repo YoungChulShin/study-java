@@ -31,3 +31,15 @@ Executors를 이용해서 ThreadPool 1개를 생성하고 테스트합니다.
 Executors를 이용해서 ThreadPool 2개를 생성하고 테스트합니다.
 
 총 시간: 5초
+
+### Case 6: Threadpool 1개를 이용한 데이터 전송 + Future 응답
+Executors를 이용해서 ThreadPool 1개를 생성하고, Future로 응답을 받습니다. 
+
+Future로 응답을 받으면, Future.get()을 통해서 비동기 응답을 기다릴 수 있습니다. 
+
+총 시간: 8초
+
+### Case 7: Threadpool 2개를 이용한 데이터 전송 + Future 응답
+Executors를 이용해서 ThreadPool 2개를 생성하고, Future로 응답을 받습니다.
+
+총 시간: 5초
