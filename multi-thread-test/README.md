@@ -43,3 +43,10 @@ Future로 응답을 받으면, Future.get()을 통해서 비동기 응답을 기
 Executors를 이용해서 ThreadPool 2개를 생성하고, Future로 응답을 받습니다.
 
 총 시간: 5초
+
+### Case 8: Threadpool 2개를 이용한 데이터 전송 + InvokeAll
+Executors를 이용해서 ThreadPool 2개를 생성하고, InvokeAll로 호출합니다. 
+
+InvokeAll로 호출되면, 비동기작업이 모두 완료되어야 다음 작업이 수행됩니다. 
+
+총 시간: 8초
