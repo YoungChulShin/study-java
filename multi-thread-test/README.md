@@ -21,3 +21,13 @@ DataSenderThread를 생성하고, 이 Thread를 이용해서 전송합니다.
 Thread 생성 시, Runnable 인터페이스를 이용해서 값을 전달합니다. 
 
 총 시간: 5초
+
+### Case 4: Threadpool 1개를 이용한 데이터 전송
+Executors를 이용해서 ThreadPool 1개를 생성하고 테스트합니다. 
+
+총 시간: 8초
+
+### Case 5: Threadpool 2개를 이용한 데이터 전송
+Executors를 이용해서 ThreadPool 2개를 생성하고 테스트합니다.
+
+총 시간: 5초
