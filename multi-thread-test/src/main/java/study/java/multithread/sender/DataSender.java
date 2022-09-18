@@ -1,27 +1,37 @@
 package study.java.multithread.sender;
 
+import java.time.LocalDateTime;
+
 public class DataSender {
 
-  public static void sendData1() throws InterruptedException {
+  public static void sendData1() {
     long threadId = Thread.currentThread().getId();
     String threadName = Thread.currentThread().getName();
     long startTime = System.currentTimeMillis();
 
-    System.out.println("데이터 1 전송 시작 - " + threadId + ", " + threadName);
-    Thread.sleep(5000);
-    System.out.println("데이터 1 전송 완료 - " + threadId + ", " + threadName);
-    System.out.println("데이터 1 전송 시간 - " + (System.currentTimeMillis() - startTime));
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 1 전송 시작 - " + threadId + ", " + threadName);
+    waitLock(5000L);
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 1 전송 완료 - " + threadId + ", " + threadName);
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 1 전송 시간 - " + (System.currentTimeMillis() - startTime));
   }
 
-  public static void sendData2() throws InterruptedException {
+  public static void sendData2() {
     long threadId = Thread.currentThread().getId();
     String threadName = Thread.currentThread().getName();
     long startTime = System.currentTimeMillis();
 
-    System.out.println("데이터 2 전송 시작 - " + threadId + ", " + threadName);
-    Thread.sleep(3000);
-    System.out.println("데이터 2 전송 완료 - " + threadId + ", " + threadName);
-    System.out.println("데이터 2 전송 시간 - " + (System.currentTimeMillis() - startTime));
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 2 전송 시작 - " + threadId + ", " + threadName);
+    waitLock(3000L);
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 2 전송 완료 - " + threadId + ", " + threadName);
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 2 전송 시간 - " + (System.currentTimeMillis() - startTime));
+  }
+
+  private static void waitLock(long millis) {
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
   }
 
 }
