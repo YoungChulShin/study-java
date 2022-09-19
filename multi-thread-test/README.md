@@ -72,4 +72,12 @@ Future를 사용할 때에는 콜백을 사용하려면 Future.get() 이후에 �
 ### Case 11: CompletableFuture + exceptionally
 exceptionally를 함께 사용하면 예외가 발생했을 때 처리를 할 수 있다. 
 
-CompletableFuture.allOf로 처리하면, 예외가 발생하지 않는다. get()을 통해서 데이터를 가져와야지 그때 예외가 발생한다. 
+CompletableFuture.allOf로 처리하면, 예외가 발생하지 않는다. get()을 통해서 데이터를 가져와야지 그때 예외가 발생한다.
+
+### Case 12: CompletableFuture + supplyAsync
+
+추가 연산
+- thenApply: a를 받아서 b를 리턴하는 기능. 값을 변환할 때 사용할 수 있을 것 같다
+- thenAccept: 응답값이 없는 consumer
+- thenCompose: 2개의 completableFuture를 이어준다. 
+- thenCombine: 상관 없는 2개의 completableFuture를 조합한다
