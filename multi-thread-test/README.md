@@ -50,3 +50,24 @@ Executors를 이용해서 ThreadPool 2개를 생성하고, InvokeAll로 호출�
 InvokeAll로 호출되면, 비동기작업이 모두 완료되어야 다음 작업이 수행됩니다. 
 
 총 시간: 8초
+
+### Case 9: CompletableFuture를 이용해서 처리
+CompletableFuture를 이용해서 2개의 작업을 처리합니다. allOff를 이용하면 실행중인 모든 항목이 완료될 때까지 응답을 기다립니다.
+
+Thread는 ForkJoinPool을 이용해서 실행됩니다.
+
+총 시간: 5초
+
+### Case 10: CompletableFuture + 콜백 응답
+CompletableFuture를 이용해서 2개의 작업을 처리하고, 콜백을 추가합니다. 
+
+Future를 사용할 때에는 콜백을 사용하려면 Future.get() 이후에 무언가를 할 수 있었는 데, CompletableFuture를 이용하면 콜백을 미리 설정해줄 수 있다.
+
+콜백 명령어
+- thenRun: Runnable을 동기적으로 콜백. 1개 CompletableFuture에 n개 Runnable이 걸려있으면, 순차적으로 실행된다.
+- thenRunAsync: Runnable을 비동기적으로 실행. 기존은 ForkJoinPool을 사용하고, ExecutorService를 전달해줄 수 돟 있다. 
+- CompletableFuture.allOf: 모든 작업이 완료될 때까지 기다린다
+- CompletableFuture.anyOf: 한개라도 먼저 종료되면 끝난다
+
+
+총 시간: 5초

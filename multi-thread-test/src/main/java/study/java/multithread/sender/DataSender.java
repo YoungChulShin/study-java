@@ -52,6 +52,17 @@ public class DataSender {
     return "data2";
   }
 
+  public static void sendData(int number, long millis) {
+    long threadId = Thread.currentThread().getId();
+    String threadName = Thread.currentThread().getName();
+    long startTime = System.currentTimeMillis();
+
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 " + number + " 전송 시작 - " + threadId + ", " + threadName);
+    waitLock(millis);
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 " + number + " 전송 완료 - " + threadId + ", " + threadName);
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 " + number + " 전송 시간 - " + (System.currentTimeMillis() - startTime));
+  }
+
   private static void waitLock(long millis) {
     try {
       Thread.sleep(millis);
