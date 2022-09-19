@@ -63,6 +63,14 @@ public class DataSender {
     System.out.println("[" + LocalDateTime.now() + "] 데이터 " + number + " 전송 시간 - " + (System.currentTimeMillis() - startTime));
   }
 
+  public static void throwError() {
+    long threadId = Thread.currentThread().getId();
+    String threadName = Thread.currentThread().getName();
+
+    System.out.println("[" + LocalDateTime.now() + "] 데이터 전송 시작 - " + threadId + ", " + threadName);
+    throw new RuntimeException("test");
+  }
+
   private static void waitLock(long millis) {
     try {
       Thread.sleep(millis);

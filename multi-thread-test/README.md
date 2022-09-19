@@ -69,5 +69,7 @@ Future를 사용할 때에는 콜백을 사용하려면 Future.get() 이후에 �
 - CompletableFuture.allOf: 모든 작업이 완료될 때까지 기다린다
 - CompletableFuture.anyOf: 한개라도 먼저 종료되면 끝난다
 
+### Case 11: CompletableFuture + exceptionally
+exceptionally를 함께 사용하면 예외가 발생했을 때 처리를 할 수 있다. 
 
-총 시간: 5초
+CompletableFuture.allOf로 처리하면, 예외가 발생하지 않는다. get()을 통해서 데이터를 가져와야지 그때 예외가 발생한다. 
