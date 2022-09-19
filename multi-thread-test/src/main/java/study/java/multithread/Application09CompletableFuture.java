@@ -1,15 +1,11 @@
 package study.java.multithread;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import study.java.multithread.sender.DataSender;
 
-public class Application08ThreadPool2InvokeAll {
+public class Application09CompletableFuture {
 
   public static void main(String[] args) throws InterruptedException, ExecutionException {
     long threadId = Thread.currentThread().getId();
@@ -18,18 +14,10 @@ public class Application08ThreadPool2InvokeAll {
 
     System.out.println("[" + LocalDateTime.now() + "] 프로그램 시작 - " + threadId + ", " + threadName);
 
-    ExecutorService executorService = Executors.newFixedThreadPool(2);
-    List<Future<String>> futures = executorService.invokeAll(
-        Arrays.asList(DataSender::sendData1WithReturn, DataSender::sendData2WithReturn));
-    futures.forEach(f -> {
-      try {
-        System.out.println(f.get());
-      } catch (InterruptedException | ExecutionException e) {
-        throw new RuntimeException(e);
-      }
-    });
+    CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(DataSender::sendData1);
+    CompletableFuture<Void> completableFuture2 = CompletableFuture.runAsync(DataSender::sendData2);
 
-    executorService.shutdown();
+    CompletableFuture.allOf(completableFuture, completableFuture2).get();
 
     System.out.println("[" + LocalDateTime.now() + "] 프로그램 종료 - " + threadId + ", " + threadName);
     System.out.println("[" + LocalDateTime.now() + "] 총 시간 - " + (System.currentTimeMillis() - startTime));
