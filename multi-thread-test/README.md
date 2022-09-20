@@ -1,4 +1,5 @@
 # 동기/비동기를 사용 실습
+## 자바에서 지원하는 비동기 실습
 
 ### 상황
 Data1, Data2 2개의 데이터를 전송합니다. 각 데이터의 전송 시간은 아래와 같습니다
@@ -81,3 +82,8 @@ CompletableFuture.allOf로 처리하면, 예외가 발생하지 않는다. get()
 - thenAccept: 응답값이 없는 consumer
 - thenCompose: 2개의 completableFuture를 이어준다. 
 - thenCombine: 상관 없는 2개의 completableFuture를 조합한다
+
+## 상품 계산 예시
+비동기 코드 내에서 예외가 발생하면, Future.get()을 했을 때 계속 대기하는 상황이 발생할 수 있다
+- Future.get()을 할 때, 타임아웃 값을 설정해서 타임아웃 처리한다. Timeout 시간동안 처리되지 않으면, TimeoutException이 발생한다. 
+- CompletableFuture를 사용한다면 `completableFuture.completeExceptionally(ex);`를 이용해서, 명시적으로 예외를 포함한 종료처리를 해야한다. 그렇지 않으면 get()을 호출했을 때 계속 대기하게 된다
