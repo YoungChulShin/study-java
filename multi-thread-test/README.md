@@ -87,3 +87,21 @@ CompletableFuture.allOf로 처리하면, 예외가 발생하지 않는다. get()
 비동기 코드 내에서 예외가 발생하면, Future.get()을 했을 때 계속 대기하는 상황이 발생할 수 있다
 - Future.get()을 할 때, 타임아웃 값을 설정해서 타임아웃 처리한다. Timeout 시간동안 처리되지 않으면, TimeoutException이 발생한다. 
 - CompletableFuture를 사용한다면 `completableFuture.completeExceptionally(ex);`를 이용해서, 명시적으로 예외를 포함한 종료처리를 해야한다. 그렇지 않으면 get()을 호출했을 때 계속 대기하게 된다
+
+
+## 외부 기능을 내부적으로 비동기 실행하기
+### 상황
+물건을 검색할 때 1초씩 걸리는 외부 API에 대해서, 4개의 물건을 효율적으로 조회할 수 있는 방법 검토
+
+### Case 1: 직접 호출
+동기적으로 동작하기 때문에 총 4초 소요
+
+### Case 2: 스트림 병렬 호출
+parallelStream()을 이용하면 스트림의 병렬 기능을 이용해서 호출할 수 있다. 내부적으로는 forkjoinpool을 사용한다.
+
+총 1초 소요
+
+### Case 3: 스트림 병렬 호출
+CompletableFuture를 이용해서도 병렬 호출을 할 수 있다.
+
+총 1초 소요
