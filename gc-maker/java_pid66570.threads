@@ -1,0 +1,123 @@
+Thread 0x7ff00b980
+
+  locals:
+
+Thread 0x7ff131280
+  at java.lang.ThreadGroup.uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V (ThreadGroup.java:1084)
+  at java.lang.Thread.dispatchUncaughtException(Ljava/lang/Throwable;)V (Thread.java:2008)
+
+  locals:
+    objectId=0x7ff00b738, line=0
+    objectId=0x7ff131280, line=0
+    objectId=0x7ff000b38, line=0
+    objectId=0x7ff00cd38, line=0
+    objectId=0x7ff131280, line=1
+    objectId=0x7ff000b38, line=1
+
+Thread 0x7ff00b810
+  at java.lang.OutOfMemoryError.<init>()V (OutOfMemoryError.java:48)
+  at java.lang.Integer.valueOf(I)Ljava/lang/Integer; (Integer.java:1081)
+  at study.gc.GCMaker.makeObject()V (GCMaker.java:21)
+  at study.gc.GCMaker.main([Ljava/lang/String;)V (GCMaker.java:11)
+
+  locals:
+    objectId=0x7ff300000, line=2
+    objectId=0x7ff300000, line=2
+    objectId=0x7ff00a900, line=3
+    objectId=0x7ff00a8f0, line=3
+
+Thread 0x7ff00ae58
+  at java.lang.Object.wait(J)V (Native Method)
+  at java.lang.ref.ReferenceQueue.remove(J)Ljava/lang/ref/Reference; (ReferenceQueue.java:155)
+  at jdk.internal.ref.CleanerImpl.run()V (CleanerImpl.java:140)
+  at java.lang.Thread.run()V (Thread.java:833)
+  at jdk.internal.misc.InnocuousThread.run()V (InnocuousThread.java:162)
+
+  locals:
+    objectId=0x7ff00afe0, line=1
+    objectId=0x7ff00afd0, line=1
+    objectId=0x7ff00b000, line=2
+    objectId=0x7ff00ae58, line=2
+    objectId=0x7ff00ae58, line=2
+    objectId=0x7ff00ae58, line=3
+    objectId=0x7ff00ae58, line=4
+
+Thread 0x7ff00ac20
+  at java.lang.Object.wait(J)V (Native Method)
+  at java.lang.ref.ReferenceQueue.remove(J)Ljava/lang/ref/Reference; (ReferenceQueue.java:155)
+  at java.lang.ref.ReferenceQueue.remove()Ljava/lang/ref/Reference; (ReferenceQueue.java:176)
+  at java.lang.ref.Finalizer$FinalizerThread.run()V (Finalizer.java:172)
+
+  locals:
+    objectId=0x7ff00ada8, line=1
+    objectId=0x7ff00ad98, line=1
+    objectId=0x7ff00ada8, line=2
+    objectId=0x7ff00ac20, line=3
+    objectId=0x7ff00adc8, line=3
+
+Thread 0x7ff05f248
+
+  locals:
+
+Thread 0x7ff00c0b0
+
+  locals:
+
+Thread 0x7ff00aab0
+  at java.lang.ref.Reference.waitForReferencePendingList()V (Native Method)
+  at java.lang.ref.Reference.processPendingReferences()V (Reference.java:253)
+  at java.lang.ref.Reference$ReferenceHandler.run()V (Reference.java:215)
+
+  locals:
+    objectId=0x7ff00aab0, line=2
+
+Thread 0x7ff0188f8
+  at sun.rmi.transport.tcp.TCPTransport.listen()V (TCPTransport.java:341)
+  at sun.rmi.transport.tcp.TCPTransport.exportObject(Lsun/rmi/transport/Target;)V (TCPTransport.java:243)
+  at sun.rmi.transport.tcp.TCPEndpoint.exportObject(Lsun/rmi/transport/Target;)V (TCPEndpoint.java:415)
+  at sun.rmi.transport.LiveRef.exportObject(Lsun/rmi/transport/Target;)V (LiveRef.java:147)
+  at sun.rmi.server.UnicastServerRef.exportObject(Ljava/rmi/Remote;Ljava/lang/Object;Z)Ljava/rmi/Remote; (UnicastServerRef.java:235)
+  at sun.management.jmxremote.ConnectorBootstrap$PermanentExporter.exportObject(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)Ljava/rmi/Remote; (ConnectorBootstrap.java:205)
+  at javax.management.remote.rmi.RMIJRMPServerImpl.export(Ljava/rmi/Remote;Ljava/io/ObjectInputFilter;)V (RMIJRMPServerImpl.java:153)
+  at javax.management.remote.rmi.RMIJRMPServerImpl.export()V (RMIJRMPServerImpl.java:138)
+  at javax.management.remote.rmi.RMIConnectorServer.start()V (RMIConnectorServer.java:453)
+  at sun.management.jmxremote.ConnectorBootstrap.startLocalConnectorServer()Ljavax/management/remote/JMXConnectorServer; (ConnectorBootstrap.java:582)
+  at jdk.internal.agent.Agent.startLocalManagementAgent()V (Agent.java:318)
+
+  locals:
+    objectId=0x7ff231720, line=0
+    objectId=0x7ff2316c0, line=0
+    objectId=0x7ff231720, line=1
+    objectId=0x7ff232380, line=1
+    objectId=0x7ff231720, line=1
+    objectId=0x7ff2316c0, line=2
+    objectId=0x7ff232380, line=2
+    objectId=0x7ff1fcc10, line=3
+    objectId=0x7ff232380, line=3
+    objectId=0x7ff1fcb58, line=4
+    objectId=0x7ff1f53a0, line=4
+    objectId=0x7ff1f5168, line=4
+    objectId=0x7ff232090, line=4
+    objectId=0x7ff232380, line=4
+    objectId=0x7ff182e68, line=5
+    objectId=0x7ff1f53a0, line=5
+    objectId=0x7ff1f2c78, line=5
+    objectId=0x7ff1f6798, line=5
+    objectId=0x7ff1fcb58, line=5
+    objectId=0x7ff1f53a0, line=6
+    objectId=0x7ff1f53a0, line=6
+    objectId=0x7ff1f6798, line=6
+    objectId=0x7ff182e68, line=6
+    objectId=0x7ff1f53a0, line=7
+    objectId=0x7ff1f4f00, line=8
+    objectId=0x7ff1f53a0, line=8
+    objectId=0x7ff182ce0, line=9
+    objectId=0x7ff1996c0, line=9
+    objectId=0x7ff1993a8, line=9
+    objectId=0x7ff189570, line=9
+    objectId=0x7ff1f1dc0, line=9
+    objectId=0x7ff1f2a98, line=9
+    objectId=0x7fff4c6e8, line=9
+    objectId=0x7ff1f4f00, line=9
+    objectId=0x7ff182180, line=10
+
