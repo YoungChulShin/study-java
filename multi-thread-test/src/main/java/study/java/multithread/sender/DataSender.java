@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 
 public class DataSender {
 
+  /**
+   * 5초 소요
+   */
   public static void sendData1() {
     long threadId = Thread.currentThread().getId();
     String threadName = Thread.currentThread().getName();
@@ -15,6 +18,9 @@ public class DataSender {
     System.out.println("[" + LocalDateTime.now() + "] 데이터 1 전송 시간 - " + (System.currentTimeMillis() - startTime));
   }
 
+  /**
+   * 5초 소요
+   */
   public static String sendData1WithReturn() {
     long threadId = Thread.currentThread().getId();
     String threadName = Thread.currentThread().getName();
@@ -28,6 +34,9 @@ public class DataSender {
     return "data1";
   }
 
+  /**
+   * 3초 소요
+   */
   public static void sendData2() {
     long threadId = Thread.currentThread().getId();
     String threadName = Thread.currentThread().getName();
@@ -39,6 +48,9 @@ public class DataSender {
     System.out.println("[" + LocalDateTime.now() + "] 데이터 2 전송 시간 - " + (System.currentTimeMillis() - startTime));
   }
 
+  /**
+   * 3초 소요
+   */
   public static String sendData2WithReturn() {
     long threadId = Thread.currentThread().getId();
     String threadName = Thread.currentThread().getName();
