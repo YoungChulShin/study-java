@@ -20,8 +20,12 @@ public class Application07ThreadPool2Future {
     Future<?> future1 = executorService.submit(DataSender::sendData1);
     Future<?> future2 = executorService.submit(DataSender::sendData2);
 
+    // future2는 먼저 종료되지만 future1이 종료될 때까지 기다린다
     future1.get();
+    System.out.println("[" + LocalDateTime.now() + "] future#1 get - " + threadId + ", " + threadName);
     future2.get();
+    System.out.println("[" + LocalDateTime.now() + "] future#2 get - " + threadId + ", " + threadName);
+
     executorService.shutdown();
 
     System.out.println("[" + LocalDateTime.now() + "] 프로그램 종료 - " + threadId + ", " + threadName);
