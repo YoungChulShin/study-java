@@ -73,7 +73,7 @@ Future를 사용할 때에는 콜백을 사용하려면 Future.get() 이후에 �
 
 콜백 명령어
 - thenRun: Runnable을 동기적으로 콜백. 1개 CompletableFuture에 n개 Runnable이 걸려있으면, 순차적으로 실행된다.
-- thenRunAsync: Runnable을 비동기적으로 실행. 기존은 ForkJoinPool을 사용하고, ExecutorService를 전달해줄 수 돟 있다. 
+- thenRunAsync: Runnable을 비동기적으로 실행. 기본은 ForkJoinPool을 사용하고, ExecutorService를 전달해줄 수 있다. 
 - CompletableFuture.allOf: 모든 작업이 완료될 때까지 기다린다
 - CompletableFuture.anyOf: 한개라도 먼저 종료되면 끝난다
 
