@@ -36,7 +36,7 @@ Executors를 이용해서 ThreadPool 2개를 생성하고 테스트합니다.
 ### Case 6: Threadpool 1개를 이용한 데이터 전송 + Future 응답
 Executors를 이용해서 ThreadPool 1개를 생성하고, Future로 응답을 받습니다. 
 
-Future로 응답을 받으면, Future.get()을 통해서 비동기 응답을 기다릴 수 있습니다. 
+Future로 응답을 받으면, 비동기 작업의 상태를 관리할 수 있습니다. 작업을 취소하거나, 처리 상태 확인 그리고 Future.get()을 통해서 비동기 응답을 기다릴 수 있습니다. 
 
 총 시간: 8초
 
@@ -51,6 +51,13 @@ Executors를 이용해서 ThreadPool 2개를 생성하고, InvokeAll로 호출�
 InvokeAll로 호출되면, 비동기작업이 모두 완료되어야 다음 작업이 수행됩니다. 
 
 총 시간: 8초
+
+### Case 8-1: Threadpool 2개를 이용한 데이터 전송 + InvokeAny
+Executors를 이용해서 ThreadPool 2개를 생성하고, InvokeAny로 호출합니다.
+
+InvokeAny로 호출되면, 하나의 작업이 완료되면 나머지 작업은 모두 취소합니다. 
+
+총 시간: 3초
 
 ### Case 9: CompletableFuture를 이용해서 처리
 CompletableFuture를 이용해서 2개의 작업을 처리합니다. allOff를 이용하면 실행중인 모든 항목이 완료될 때까지 응답을 기다립니다.
