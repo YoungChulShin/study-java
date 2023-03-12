@@ -14,18 +14,26 @@ public class Application11CompletableFutureException {
 
     System.out.println("[" + LocalDateTime.now() + "] 프로그램 시작 - " + threadId + ", " + threadName);
 
-    CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(DataSender::throwError);
-    CompletableFuture<Void> exceptionally = completableFuture.exceptionally(throwable -> {
-      System.out.println("에러 발생: " + throwable.getMessage());
-      try {
-        throw throwable;
-      } catch (Throwable e) {
-        throw new RuntimeException(e);
-      }
-    });
+    CompletableFuture<Void> completableFuture = CompletableFuture
+        .runAsync(DataSender::throwError)
+        .exceptionally(throwable -> {
+          System.out.println("에러 발생: " + throwable.getMessage());
+          try {
+            throw throwable;
+          } catch (Throwable e) {
+            throw new RuntimeException(e);
+          }
+        });
+//    CompletableFuture<Void> exceptionally = completableFuture.exceptionally(throwable -> {
+//      System.out.println("에러 발생: " + throwable.getMessage());
+//      try {
+//        throw throwable;
+//      } catch (Throwable e) {
+//        throw new RuntimeException(e);
+//      }
+//    });
 
-    CompletableFuture.allOf(completableFuture, exceptionally);
-    exceptionally.get();
+    completableFuture.get();
 
     System.out.println("[" + LocalDateTime.now() + "] 프로그램 종료 - " + threadId + ", " + threadName);
     System.out.println("[" + LocalDateTime.now() + "] 총 시간 - " + (System.currentTimeMillis() - startTime));

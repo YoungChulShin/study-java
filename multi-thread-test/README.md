@@ -78,9 +78,9 @@ Future를 사용할 때에는 콜백을 사용하려면 Future.get() 이후에 �
 - CompletableFuture.anyOf: 한개라도 먼저 종료되면 끝난다
 
 ### Case 11: CompletableFuture + exceptionally
-exceptionally를 함께 사용하면 예외가 발생했을 때 처리를 할 수 있다. 
+별도로 실행중인 스레드에서 예외가 발생해도 해당 에러가 전파되지는 않는다. 이때 `exceptionally`를 사용하면 에러가 발생했을 때 내용을 정의할 수 있다. 이때 실제로 에러가 throw 되려면 `.get()` 을 호출해야한다.
 
-CompletableFuture.allOf로 처리하면, 예외가 발생하지 않는다. get()을 통해서 데이터를 가져와야지 그때 예외가 발생한다.
+`CompletableFuture.completeExceptionally`를 이용하면 명시적으로 예를 발생시키면서 종료시킬 수도 있다. 
 
 ### Case 12: CompletableFuture + supplyAsync
 
