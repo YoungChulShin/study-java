@@ -1,6 +1,44 @@
 # 동기/비동기를 사용 실습
-## 자바에서 지원하는 비동기 실습
+## CompletableFuture
+Java8부터 사용 가능하며, 비동기 호출을 훨씬 쉽게 만들어준다. 
 
+CompletableFuture 큰 특징은 콜백을 등록하거나 메서드 체이닝, 2개의 비동기를 합치는 등의 동작을 할 수 있다. 기존에도 Future를 통해서 할 수 있었으나, 그 방법이 더 쉬워졌다. 
+
+메서드
+- runAsync
+   - 팩토리 메서드
+   - runnable을 전달 받는다
+- supplyAsync
+   - 팩토리 메서드
+   - supplier를 전달 받는다. 응답값이 `CompletableFuture<T>` 가 된다. 
+- thenApply
+   - 앞의 연산의 결과 값을 이어서 처리할 때 사용한다
+   - CompletableFuture가 끝날 때까지 블록하지 않는다
+- thenCompose
+   - 첫번째 연산의 결과를 두번째 연산으로 전달한다
+- thenCombine
+   - 첫번째 연산과 두번째 연산을 합해서 처리한다
+- thenAccept
+   - 연산 결과를 소비하는 'Consumer'를 파라미터로 받는다
+- allOf
+   - CompletableFuture 배열을 입력받아서 `CompletableFuture<Void>`를 반환한다. 
+   - 모든 CompletableFuture가 완료되어야 완료된다. 
+   - `join` 메서드를 호출하면 실행 완료를 기다릴 수 있다
+- anyOf
+   - 처음으로 완료한 CompletableFuture 값으로 동작을 완성한다
+
+특징
+- 일반 메서드와 async가 붙은 메서드와의 차이
+   - async로 끝나는 메서드는 해당 작업을 다른 스레드에서 실행되도록 스레드 풀에 작업을 요청한다. 
+   - aysnc가 없는 메서드는 이전 작업을 수행한 스레드와 같은 스레드에서 작업을 수행한다
+   - 꼭 새로운 스레드에서 실행되어야하는게 아니라면 일반메서드를 사용해서 스레드 전환 오버헤드나 새로운 스레드가 없어서 대기하는 등의 문제를 줄일 수 있다
+
+스트림 병렬화와 CompletableFuture 병렬화
+- I/O가 포함되어 있지 않은 계산 중심의 동작은 스트림 인터페이스가 구현하기 편한다
+- 
+
+
+## 자바에서 지원하는 비동기 실습
 ### 상황
 Data1, Data2 2개의 데이터를 전송합니다. 각 데이터의 전송 시간은 아래와 같습니다
 - Data1: 5초

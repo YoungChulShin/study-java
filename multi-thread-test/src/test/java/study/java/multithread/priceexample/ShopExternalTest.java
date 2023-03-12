@@ -65,6 +65,7 @@ class ShopExternalTest {
     String product = "iphone14";
     List<Shop04External> shops = getShops();
     // forkjoinpool을 사용
+
     List<CompletableFuture<String>> futureFindProducts = shops.stream()
         .map(s -> CompletableFuture.supplyAsync(
             () -> {
