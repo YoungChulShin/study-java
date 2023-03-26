@@ -88,5 +88,10 @@ public class TimeApplication {
     System.out.println(zonedDateTimeUTC.toInstant());
     System.out.println(zonedDateTimeUSA.toInstant());
     System.out.println(zonedDateTimeKOR.toInstant());
+
+    Instant instant13 = Instant.now();
+    System.out.println(instant13);
+    LocalDateTime localDateTime = LocalDateTime.ofInstant(instant13, ZoneId.of("America/New_York"));
+    System.out.println(localDateTime);
   }
 }
