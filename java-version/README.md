@@ -304,4 +304,67 @@ String greeting3 = """
 System.out.println(greeting3);  // 안녕하세요. 만나서 반갑습니다
 ```
 
+# Java 16
+## 키워드
+- Pattern Matching: 정식 지원
+- Record: 정식 지원
+   - dto를 만들 때 편리하게 사용할 수 있다
+   - 생성자, getter, toString, equals, hashCode를 기본으로 지원한다
+- [Unix-Domain Socket](https://www.lesstif.com/linux-core/unix-domain-socket) Channel 지원
+
+### Pattern Matching for instanceOf
+```java
+// java8
+private void printData(Object data) {
+if (data instanceof String) {
+    String stringData = (String) data;
+    System.out.println(stringData.substring(1));
+}
+}
+
+// java16
+private void printData2(Object data) {
+if (data instanceof String stringData) {
+    System.out.println(stringData.substring(1));
+}
+}
+```
+
+### Record
+기본 사용
+- 기본 정의 및 사용 코드
+   ```java
+   // record 선언
+   record Point2(int x, int y) { }
+
+   // Java 14 (Preview), Java16 (Official)
+   // constructor
+   Point2 point = new Point2(1, 2);
+   // getter
+   point.x();
+   point.y();
+   // toString()
+   System.out.println(point); // Point2[x=1, y=2]
+   // equals
+   Point2 point2 = new Point2(1, 2);
+   if (point.equals(point2)) { // true
+      System.out.println("equal!");
+   }
+   // hashCode
+   Set<Point2> pointSet = new HashSet<>();
+   pointSet.add(point);
+   pointSet.add(point2);
+   System.out.println(pointSet.size());  // 1
+   ```
+
+생성자 
+- 생성자 사용 샘플
+   ```java
+   public record SampleRequest(Long id, String name, int age) {
+      // 클래스가 생성되었을 때 아래 코드가 동작한다
+      public SampleRequest {
+         System.out.println("생성되었습니다. id: " + id + ", name: " + name + ", age: " + age);
+      }
+   }
+   ```
 

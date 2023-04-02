@@ -30,5 +30,9 @@ public class RecordEx {
     pointSet.add(point);
     pointSet.add(point2);
     System.out.println(pointSet.size());  // 1
+
+    // record test
+    var sampleRequest = new SampleRequest(1L, "myname", 20);
+    sampleRequest.printName();
   }
 }
