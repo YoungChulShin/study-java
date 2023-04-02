@@ -368,3 +368,24 @@ if (data instanceof String stringData) {
    }
    ```
 
+# Java 17 LTS
+## 키워드
+- Pattern Matching for switch: Preview
+- Sealed class: 정식 지원
+
+
+### Sealed class
+- compile time에 상속 구조를 sealing 시키는 느낌이 든다
+```java
+// BMW와 Genesis만 Car를 상속할 수 있다
+public abstract sealed class Car
+  permits BMW, Genesis {
+}
+
+// BMW와 Genesis는 final 이어야한다
+public final class Genesis extends Car { }
+
+// permits 대상에 없는 Boing은 Car를 상속할 수 없다
+// 컴파일 타임 에러
+public class Boing extends Car { }
+```
