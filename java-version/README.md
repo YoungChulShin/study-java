@@ -220,3 +220,61 @@ lines.forEach(System.out::println);
 // bbbb
 // cccc
 ```
+
+# Java 12
+## 키워드
+- Unicode 11 지원
+
+# Java 13
+## 키워드
+- Unicode 12.1 지원
+- Switch: 표현식을 지원 (Preview)
+- MultiLine String 지원 (Preview)
+
+# Java 14
+## 키워드
+- Switch: 표현식 정식 지원
+- Records: Preview 추가
+- NullPointerException: 어떤 값이 null인지 조금 더 자세히 표시한다
+
+### Switch 표현식
+```java
+public enum Nationality { KOREA, JAPAN, USA, CHINA }
+
+Nationality my = Nationality.KOREA;
+
+// java 8
+String greeting;
+switch (my) {
+    case KOREA:
+      greeting = "안녕하세요";
+      break;
+    case USA:
+      greeting = "헬로";
+      break;
+    default:
+      greeting = "잘 모르겠네요";
+      break;
+}
+System.out.println(greeting);
+
+// java 14
+String greeting2 = switch (my) {
+    case KOREA -> "안녕하세요";
+    case USA -> "헬로";
+    default -> {
+      yield "잘 모르겠네요";
+    }
+};
+System.out.println(greeting2);
+```
+
+### NullPointerException의 null 표현 강화
+```java
+User user = null;
+System.out.println(user.name);
+// message: Cannot read field "name" because "user" is null
+```
+
+
+
