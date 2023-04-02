@@ -1,7 +1,10 @@
 package study.java.version.java9;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -25,8 +28,10 @@ public class CollectionEx {
 
     List<Integer> listInteger3 = Stream.of(1, 2, 3).collect(Collectors.toList());
 
+    List<Integer> listInteger4 = Arrays.asList(1, 2, 3, 4, 5);
+
     // java9
-    List<Integer> listInteger4 = List.of(1, 2, 3);
+    List<Integer> listInteger5 = List.of(1, 2, 3);
 
   }
 }
