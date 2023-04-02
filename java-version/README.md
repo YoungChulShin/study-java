@@ -170,3 +170,53 @@ String greeting = "hello";
 // java 10
 var greeting2 = "안녕하세요";  // class java.lang.String
 ```
+
+# Java 11 - LTS
+## 키워드
+- String: 새로운 메서드 추가
+   - isBlank(), lines(), strip()
+- HttpClient: java9에 initial version이 final 버전으로 결정
+   - 기존에는 Apache HttpClient 또는 OkHttp 같은 3rd party 라이브러리를 사용해야했다
+
+## update java 8 to java 11
+- 모듈 시스템 (java 9)
+- 새로운 Profiling, Diagnostics 도구 사용 가능
+   - JFR(Java Flight Recoder)
+   - JMC(Java Mission Control)
+   - Low-overhead 힙 프로파일링 제공
+   - StackWalker
+   - G1 GC
+      - Java 8 default: Parallel GC. Multiple Thread를 이용한 garbage collection 속도 향상
+   - docker container 지원 개선
+      - jvm에서 memory, cpu constraint 설정 가능. (java8에서는 host 메모리의 1/4를 사용)
+
+
+### String 헬퍼 메서드 - isBlank()
+```java
+// java 8 공백 체크
+String greeting = " ";
+
+if (greeting.trim().isEmpty()) {
+    System.out.println("blank");
+}
+
+// java 8 + Apache Commons Lang library
+if (StringUtils.isBlank(greeting)) {
+    System.out.println("blank");
+}
+
+// java 11
+if (greeting.isBlank()) {
+    System.out.println("blank");
+}
+```
+
+### String 헬퍼 메서드 - lines()
+```java
+String mixedAlphabet = "aaaa\rbbbb\ncccc";
+Stream<String> lines = mixedAlphabet.lines();
+lines.forEach(System.out::println);
+// aaaa
+// bbbb
+// cccc
+```
