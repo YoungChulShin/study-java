@@ -99,7 +99,7 @@ LocalDateTime localDateTime = LocalDateTime.ofInstant(instant13, ZoneId.of("Amer
 ```
 
 # Java 9
-키워드
+## 키워드
 - Collection: 새로운 helper 메서드 추가
 - Stream: 새로운 메서드 추가
    - iterate, takeWhile, dropWhile
@@ -107,7 +107,7 @@ LocalDateTime localDateTime = LocalDateTime.ofInstant(instant13, ZoneId.of("Amer
    - ifPresentOrElse
 - Interface: private method 추가. interface에서 공통 코드를 분리할 수 있다
 
-Collection 생성
+### Collection 생성
 ```java
 // java 8
 List<Integer> listInteger1 = new ArrayList<>();
@@ -130,7 +130,7 @@ List<Integer> listInteger4 = Arrays.asList(1, 2, 3);
 List<Integer> listInteger5 = List.of(1, 2, 3);
 ```
 
-Optional-ifPresentOrElse
+### Optional-ifPresentOrElse
 ```java
 // java8
 Optional<String> message = Optional.empty();
@@ -144,7 +144,7 @@ if (message.isPresent()) {
 message.ifPresentOrElse(System.out::println, () -> System.out.println("empty"));
 ```
 
-Interface with private mehtod
+### Interface with private mehtod
 ```java
 public interface InterfaceEx {
 
@@ -156,4 +156,17 @@ public interface InterfaceEx {
     System.out.println("hello");
   }
 }
+```
+
+# Java 10
+## 키워드
+- var 키워드 추가
+
+### var 키워드
+```java
+// java 8
+String greeting = "hello";
+
+// java 10
+var greeting2 = "안녕하세요";  // class java.lang.String
 ```
