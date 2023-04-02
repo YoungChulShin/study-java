@@ -276,5 +276,32 @@ System.out.println(user.name);
 // message: Cannot read field "name" because "user" is null
 ```
 
+# Java 15
+## 키워드
+- MultiLine String: 정식 지원 (13에서 Preview)
+- Sealed Class 추가 (Preview)
+   - public class에 하위 클래스가 어떤게 올 수 있는지 지정할 수 있다
+- ZGC: Production-Ready 로 상태 변경. [Link](https://wiki.openjdk.org/display/zgc/Main)
+
+### MultiLine/TextBlock String
+```java
+// java8
+String greeting = "안녕하세요.\n"
+    + "만나서 반갑습니다";
+System.out.println(greeting);
+
+// java15
+String greeting2 = """
+    안녕하세요.
+    만나서 반갑습니다""";
+System.out.println(greeting2);
+
+// if (greeting.equals(greeting2)) => true
+
+String greeting3 = """
+    안녕하세요. \
+    만나서 반갑습니다""";
+System.out.println(greeting3);  // 안녕하세요. 만나서 반갑습니다
+```
 
 
