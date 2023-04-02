@@ -1,8 +1,24 @@
 # 저장소 설명
-Java 버전별 특징에 대한 코딩
+Java 버전별 특징에 대한 정리
 
-버전별 특징에 대한 설명:
-https://github.com/YoungChulShin/TIL/blob/master/Java/버전별정리.md
+# 참고 자료
+- https://www.marcobehler.com/guides/a-guide-to-java-versions-and-features
+- https://learn.microsoft.com/en-us/java/openjdk/reasons-to-move-to-java-11
+
+# 버전에 대한 메모
+릴리즈 주기
+- 6개월 주기로 릴리즈 된다
+- 자바 LTS 버전: 17 (2021.09) [Link](https://www.oracle.com/java/technologies/java-se-support-roadmap.html)
+
+배포
+- Java 8까지 있던 JDK, JRE의 구분이 9부터 JDK로 통합
+
+호환성
+- Java8으로 개발된 코드는 Java18(=최신버전)에서도 동작한다
+
+스프링부트 3.0
+- `2023.04.02` 기준 3.0.5 버전이 GA: [Link](https://spring.io/projects/spring-boot#learn)
+- Java 17버전 필요 [Link](https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0)
 
 # Java8
 ## Time
